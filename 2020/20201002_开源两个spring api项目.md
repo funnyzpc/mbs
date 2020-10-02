@@ -17,7 +17,7 @@
   - [mee-api](https://github.com/funnyzpc/mee-api)
 
 + 项目基础文档
-  - 见[README.md](https://github.com/funnyzpc/mee-api/blob/master/README.md)
+  - 见-> [README.md](https://github.com/funnyzpc/mee-api/blob/master/README.md)
   
 + 本项目自带的核心功能
   - spring core 核心框架(IOC、AOP)
@@ -53,7 +53,7 @@
   - [mee-multi-api](https://github.com/funnyzpc/mee-multi-api)
   
 + 项目基础文档
-  - 见[README.md](https://github.com/funnyzpc/mee-multi-api/blob/master/README.md)
+  - 见-> [README.md](https://github.com/funnyzpc/mee-multi-api/blob/master/README.md)
   
 + 本框架核心功能
   - (同上)
