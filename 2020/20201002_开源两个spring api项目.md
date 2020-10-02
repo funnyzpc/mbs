@@ -12,7 +12,7 @@
  `这是一个基于springboot2.3的简单api项目，项目主要面向的是对外接口服务，由于api项目的特殊性，所以代码并没有构建页面相关功能`
 
 + 项目地址
-  - [mee-api]()
+  - [mee-api](https://github.com/funnyzpc/mee-api)
 + 本项目自带的核心功能
   - spring core 核心框架(IOC、AOP)
   - Transation spring事务
@@ -23,7 +23,11 @@
 
 + 本项目拓展封装功能
   - Jackson序列化功能
+    - `JacksonUtil`
   - 分布式ID生成器功能(仅为抛砖引玉之作,需根据实际需求修改)
-  - 
+    - `SeqGenService` and `SeqGenUtil`
+  - 基于新日期LocalDataTime&DateTimeFormatter封装的日期类
+  - 功能entity封装(主要还是围绕自动主键生成而开发的)
+  - 基础相应类封装(统一响应格式并开放自定义message)
 
 
