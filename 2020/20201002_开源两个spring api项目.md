@@ -1,6 +1,8 @@
 
 ### 开源两个spring api项目
 
+转载请注明出处: [https://www.cnblogs.com/funnyzpc/p/13762616.html](#)
+
 ```
   工作也有五年有余了，中间一直迫于时间和能力没法从零开始构建一个完整的项目，实在太过于遗憾。
   现在，我决定把这个遗憾弥补上了，尽管这些并不是很完美，尤其是组件在实际业务需求的时候也没法尽善尽美，不过这些总会有个循序渐进的阵痛期
@@ -13,6 +15,9 @@
 
 + 框架地址
   - [mee-api](https://github.com/funnyzpc/mee-api)
+
++ 项目基础文档
+  - 见[README.md](https://github.com/funnyzpc/mee-api/blob/master/README.md)
   
 + 本项目自带的核心功能
   - spring core 核心框架(IOC、AOP)
@@ -46,7 +51,10 @@
 
 + 项目地址
   - [mee-multi-api](https://github.com/funnyzpc/mee-multi-api)
-
+  
++ 项目基础文档
+  - 见[README.md](https://github.com/funnyzpc/mee-multi-api/blob/master/README.md)
+  
 + 本框架核心功能
   - (同上)
   - 引入了neo4j作为多数据源事务管理框架
@@ -66,6 +74,5 @@
   - 对于Oracle字段大写问题封装映射类
     - `MapOrclBean`
 
-
-
+  Thus,我就介绍到这里，欢迎`star` 或 `fork` ,更欢迎各位读者提提建议或`issue` ,共同进步哈 `ヽ（≧□≦）ノ`
 
