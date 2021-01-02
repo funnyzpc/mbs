@@ -3,11 +3,11 @@
 
 #### 写在之前
   一开始我们的需求是打开报表的某个页面然后把图截出来，然后调用企业微信发送给业务群
-  这中间我尝试了多种技术，比如html2image，pdf2image、selenium这些，这其中截图
-  比较好也就selenium了，不过我们有些页面加载的时间较长，selenium似乎对html互操作性
-  也不是很完美，通过Thread.sleep并不能完美的兼容绝大多数报表，另外还有一个比较要命的
+  这中间我尝试了多种技术，比如`html2image`，`pdf2image`、`selenium`这些，这其中截图
+  比体验较好的也就`selenium`了，不过我们有些页面加载的时间较长，selenium似乎对html互操作性
+  也不是很完美(通过Thread.sleep并不能完美的兼容绝大多数报表)，另外还有一个比较要命的
   是Chromium渲染出来的页面似乎也有不同程度的问题(就是不好看),当然后面一个偶然的机会在
-  某不知名网站看到有网友用puppeteer来实现截图，遂，一顿骚操作就搭了一套出来(虽然最终的方案不是这个
+  某不知名网站看到有网友用`puppeteer`来实现截图，遂~，一通骚操作就搭了一套出来(虽然最终方案并不是这个
   ,当然这是后话哈～)，这里就拿出来说说哈～
   
 #### 准备
@@ -87,7 +87,7 @@ app.get("/screenshot", async (request, response) => {
         // 这里执行登录操作(非公共页面需要登录)
         if(request.query.login && request.query.login=="true"){
                 // wait until page load
-                await page.goto(request.query.url, { waitUntil: 'networkidle0' });
+                await page.goto('认证(登录)地址', { waitUntil: 'networkidle0' });
                 await page.type('#username', '登录用户名');
                 await page.type('#password', '登录密码');
                 // click and wait for navigation
@@ -145,3 +145,8 @@ var listener = app.listen(3000, function () {
 同时代码也对宽度(width)和高度(height)做了处理，所以具体访问地址如下
 
 `http://127.0.0.1:3000/screenshot/?width=[页面宽度]&height=[页面高度]&url=[截图地址]`
+
+#### 最后
+虽然我们我们使用`puppeteer`能应对绝大多数报表，后来发现`puppeteer`对多组件图表存在渲染问题，所以就要求
+提供商提供导出图片功能(用户页面导出非api)，所以最终一套就是 http模拟登录+调用截图接口+图片生成监控+推送图片
+好了，关于截图就分享到这里了，各位元旦节快乐哈～《^。^》
