@@ -55,5 +55,74 @@ mee-api及gee-api项目只是个模子，主要做分布式或集群微服务，
 
 ### 添加go构建
 
-  首先说，默认按照插件的方式配置go的构建十分的麻烦(无法下载go sdk以及go项目依赖部分无法拉取)
+  首先说，默认按照插件的方式配置go的构建十分的麻烦(无法下载go sdk以及go项目依赖也无法拉取)，当然解决的方式也很简单；
+  
+  + go mod无法下载依赖::在window cmd命令中加入对go env的GOPROXY的设置(同理对于go打包的配置也是一致的)
+  + 无法使用go的命令:: 在windows cmd命令行中使用绝对路径调用其命令
+  
+  以上问题的解决详见下图
+  -  ![](./20210318_files/xxx.png)
+
+### 相关脚本
++ java 部署脚本`deploy.sh`,记得部署的时候使用`chmod a+x deploy.sh`
+  ```
+#!/bin/sh
+export BUILD_ID=dontKillMe
+export JAVA_HOME=/usr/local/java/jdk1.8.0_222
+export JRE_HOME=/usr/local/java/jdk1.8.0_222/jre
+
+#项目名称 xxx.jar
+project_name=$1
+#部署路径
+deploy_path=$2
+#文件路径
+upload_path=/mnt/pkg/$1
+
+if [ -f "${upload_path}" ]; then
+        # kill process
+        ps -ef|grep ${project_name}|grep java|awk '{print $2}'|xargs kill -9
+        # remove file
+        rm -rf ${deploy_path}/${project_name}
+        # backup file
+        cp -r ${upload_path} ${deploy_path}/${project_name}_`date "+%Y%m%d%H%M%S"`
+        # move file
+        mv ${upload_path}  ${deploy_path}/${project_name}
+        # exec deploy
+        cd ${deploy_path} && nohup java -jar ${deploy_path}/${project_name} >/dev/null 2>&1 &
+else
+        exit 0
+fi
+  ```
+
+ 
++ go 部署脚本`deploy_go.sh`,创建脚本后同样需要`chmod a+x deploy_go.sh`
+  ```
+#!/bin/sh
+export BUILD_ID=dontKillMe
+
+#example gee
+project_name=$1
+#deploy path
+deploy_path=$2
+#file path
+upload_path=/mnt/pkg/$1
+
+if [ -f "${upload_path}" ]; then
+        # kill process
+        kill -9 `ps -C ${project_name} -o pid=`
+        # remove file
+        rm -rf ${deploy_path}/${project_name}
+        # backup file
+        cp -r ${upload_path} ${deploy_path}/${project_name}_`date "+%Y%m%d%H%M%S"`
+        # move file
+        mv ${upload_path}  ${deploy_path}/${project_name}
+        # add exec auth
+        chmod a+x ${deploy_path}/${project_name}
+        # exec deploy
+        cd ${deploy_path} && nohup ./${project_name} > ./external-api.log 2>&1 &
+else
+        exit 0
+fi
+  ```
+
   
