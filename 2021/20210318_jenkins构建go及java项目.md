@@ -65,7 +65,7 @@ mee-api及gee-api项目只是个模子，主要做分布式或集群微服务，
 
 ### 相关脚本
 + java 部署脚本`deploy.sh`,记得部署的时候使用`chmod a+x deploy.sh`
-  ```
+```
 #!/bin/sh
 export BUILD_ID=dontKillMe
 export JAVA_HOME=/usr/local/java/jdk1.8.0_222
@@ -97,7 +97,7 @@ fi
  
 + go 部署脚本`deploy_go.sh`,创建脚本后同样需要`chmod a+x deploy_go.sh`
 
- ```
+```
 #!/bin/sh
 export BUILD_ID=dontKillMe
 
@@ -124,6 +124,6 @@ if [ -f "${upload_path}" ]; then
 else
         exit 0
 fi
- ```
+```
 
   
