@@ -35,23 +35,23 @@ mee-api及gee-api项目只是个模子，主要做分布式或集群微服务，
 #### 基础配置
 + 路径： Manage Jenkins(jenkins管理)->Global Tool Configuration(全局工具配置)
 + 配置jdk
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/101.png)
 + 配置git
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/102.png)
 + 配置maven
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/103.png)
 
 ### 添加视图标签
 + 添加视图标签`New View`(构建任务会放在指定标签下)
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/104.png)
 
 ### 添加java构建
 + 选择(鼠标点击)新建的视图标签,然后选择左侧的`New Item`
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/105.png)
 + 填写构建的基本信息
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/106.png)
 + 构建配置详情
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/01.jpg)
 
 ### 添加go构建
 
@@ -61,10 +61,22 @@ mee-api及gee-api项目只是个模子，主要做分布式或集群微服务，
   + 无法使用go的命令:: 在windows cmd命令行中使用绝对路径调用其命令
   
   以上问题的解决详见下图
-  -  ![](./20210318_files/xxx.png)
+  -  ![](./20210318_files/02.jpg)
 
 ### 相关脚本
++ jenkins 执行远程脚本命令
+
+  - go应用执行脚本
+
+   `/usr/bin/sh /mnt/sh/deploy_go.sh external-api /mnt/app/gee >/dev/null 2>&1 &`
+  
+  - java(springboot)应用执行脚本
+
+    `/usr/bin/sh /mnt/sh/deploy_go.sh external-api /mnt/app/gee >/dev/null 2>&1 &`
+
+
 + java 部署脚本`deploy.sh`,记得部署的时候使用`chmod a+x deploy.sh`
+
 ```
 #!/bin/sh
 export BUILD_ID=dontKillMe
@@ -93,7 +105,6 @@ else
         exit 0
 fi
   ```
-
  
 + go 部署脚本`deploy_go.sh`,创建脚本后同样需要`chmod a+x deploy_go.sh`
 
