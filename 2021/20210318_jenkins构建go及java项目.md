@@ -96,7 +96,8 @@ fi
 
  
 + go 部署脚本`deploy_go.sh`,创建脚本后同样需要`chmod a+x deploy_go.sh`
-  ```
+
+ ```
 #!/bin/sh
 export BUILD_ID=dontKillMe
 
@@ -123,6 +124,6 @@ if [ -f "${upload_path}" ]; then
 else
         exit 0
 fi
-  ```
+ ```
 
   
