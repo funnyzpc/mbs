@@ -23,3 +23,20 @@ mee-api及gee-api项目只是个模子，主要做分布式或集群微服务，
 + jdk
 + go
 
+### jenkins下安装插件(这里简要描述)
+
+#### 安装
++ 路径： Manage Jenkins(jenkins管理)->Manage Plugins(插件管理)->搜索可用插件
++ 安装可用插件 ssh、git(或svn,视需求)、maven(或gradle，视需求)、
++ 配置权限模块(如果需要的话) Manage Jenkins(jenkins管理)->Global Security(全局安全)
++ 配置ssh账号(略)
++ 配置git或svn账号(略)
+
+#### 基础配置
++ 路径： Manage Jenkins(jenkins管理)->Global Tool Configuration(全局工具配置)
++ 配置jdk
+  -  ![](./20210318_files/xxx.png)
++ 配置git
+  -  ![](./20210318_files/xxx.png)
++ 配置maven
+  -  ![](./20210318_files/xxx.png)
