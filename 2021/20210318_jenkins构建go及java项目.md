@@ -131,7 +131,7 @@ if [ -f "${upload_path}" ]; then
         # add exec auth
         chmod a+x ${deploy_path}/${project_name}
         # exec deploy
-        cd ${deploy_path} && nohup ./${project_name} > ./external-api.log 2>&1 &
+        cd ${deploy_path} && nohup ./${project_name} > ./${project_name}.log 2>&1 &
 else
         exit 0
 fi
